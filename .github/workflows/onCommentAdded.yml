@@ -1,4 +1,4 @@
-name: "test"
+name: "onCommentAdded"
 on:
   discussion_comment:
     types: [created]
