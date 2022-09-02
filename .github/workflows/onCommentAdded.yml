@@ -1,0 +1,13 @@
+name: "test"
+on:
+  discussion_comment:
+    types: [created]
+jobs:
+  main:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: "Send notification"
+        run: |
+          curl -v -H 'Content-Type: application/json' -d '${{ env.EVENT }}' -L ${{ secrets.ON_COMMENT_ADDED_URL }}
+        env:
+          EVENT: ${{ toJson(github.event) }}
