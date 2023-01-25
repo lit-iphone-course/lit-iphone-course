@@ -5,10 +5,11 @@ on:
 jobs:
   main:
     runs-on: ubuntu-22.04
+    environment: Discussion
     steps:
       - name: "Send notification"
         run: |
-          curl -v -H 'Content-Type: application/json' -d '${{ env.EVENT }}' -L '${{ env.ON_COMMENT_ADDED_URL }}'
+          curl -X POST -v -H 'Content-Type: application/json' -d '${{ env.EVENT }}' -L '${{ env.ON_COMMENT_ADDED_URL }}'
         env:
           EVENT: ${{ toJson(github.event) }}
           ON_COMMENT_ADDED_URL: ${{ secrets.ON_COMMENT_ADDED_URL }}
