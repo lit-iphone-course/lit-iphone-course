@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: "Send notification"
         run: |
-          curl -H 'Content-Type: application/json' -d '${{ env.EVENT }}' -L '${{ env.ON_COMMENT_ADDED_URL }}'
+          curl -i -H 'Content-Type: application/json' -d '${{ env.EVENT }}' -L '${{ env.ON_COMMENT_ADDED_URL }}'
         env:
           EVENT: ${{ toJson(github.event) }}
           ON_COMMENT_ADDED_URL: ${{ secrets.ON_COMMENT_ADDED_URL }}
