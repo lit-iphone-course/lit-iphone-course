@@ -14,7 +14,7 @@ jobs:
           EOF
           )
           data = jq '@json' "$_data"
-          echo "PAYLOAD=$(data)" >> $GITHUB_ENV
+          echo "PAYLOAD=${data}" >> $GITHUB_ENV
       - name: "Send notification"
         run: |
           curl -i -H 'Content-Type: application/json' -d '${{ env.PAYLOAD }}' -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
