@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: "escape object"
-        run: echo "PAYLOAD=$(sed 's/'\''/'\\\\\''/g' ${{ env.EVENT }})" >> $GITHUB_ENV
-        env:
-          EVENT: ${{ toJson(github.event) }}
+        run: echo "PAYLOAD=$(echo -e ${{ toJSON(github.event) }} | sed 's/'\''/'\\\\\''/g' )" >> $GITHUB_ENV
       - name: "Send notification"
         run: |
           curl -i -H 'Content-Type: application/json' -d '${{ env.PAYLOAD }}' -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
