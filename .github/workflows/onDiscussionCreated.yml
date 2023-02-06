@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: "debug"
         run: |
-          cat "$GITHUB_EVENT_PATH" | sed 's/'\''/'\\\\\''/g' | jq '@json' |
+          cat "$GITHUB_EVENT_PATH" | sed 's/'\''/'\\\\\''/g' | jq '@json'
       - name: "Send notification"
         run: |
           cat "$GITHUB_EVENT_PATH" | sed 's/'\''/'\\\\\''/g' | jq '@json' |
