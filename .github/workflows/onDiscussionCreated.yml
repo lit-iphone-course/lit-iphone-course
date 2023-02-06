@@ -6,11 +6,11 @@ jobs:
   main:
     runs-on: ubuntu-22.04
     steps:
-      - name: "hoge"
-        run: echo "PAYLOAD=$(sed 's/'\''/'\\\\\''/g' ${{ toJSON(env.EVENT) }})" >> $GITHUB_ENV
+      - name: "escape object"
+        run: echo "PAYLOAD=$(sed 's/'\''/'\\\\\''/g' ${{ env.EVENT }})" >> $GITHUB_ENV
       - name: "Send notification"
         run: |
           curl -i -H 'Content-Type: application/json' -d '${{ env.PAYLOAD }}' -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
         env:
-          EVENT: ${{ toJSON(github.event) }}
+          EVENT: ${{ toJson(github.event) }}
           ON_DISCUSSION_CREATED_URL: ${{ secrets.ON_DISCUSSION_CREATED_URL }}
