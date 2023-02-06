@@ -6,18 +6,10 @@ jobs:
   main:
     runs-on: ubuntu-22.04
     steps:
-      - name: "escape object"
-        run: |
-          _data = $(
-          cat << "EOF"
-            ${{ toJSON(github.event) }} 
-          EOF
-          )
-          data = jq '@json' "$_data"
-          echo "PAYLOAD=${data}" >> $GITHUB_ENV
       - name: "Send notification"
         run: |
-          curl -i -H 'Content-Type: application/json' -d '${{ env.PAYLOAD }}' -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
+          cat "$GITHUB_EVENT_PATH" | jq '@json' |
+          curl -i -H 'Content-Type: application/json' -d @- -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
         env:
           EVENT: ${{ toJson(github.event) }}
           ON_DISCUSSION_CREATED_URL: ${{ secrets.ON_DISCUSSION_CREATED_URL }}
