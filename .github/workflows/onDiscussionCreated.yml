@@ -8,10 +8,10 @@ jobs:
     steps:
       - name: "debug"
         run: |
-          cat "$GITHUB_EVENT_PATH" | jq '@json' | sed 's/'\''/'\\\\\''/g'
+          cat "$GITHUB_EVENT_PATH" | jq '@json' | sed 's/'\''/'\\\\\"'/g'
       - name: "Send notification"
         run: |
-          cat "$GITHUB_EVENT_PATH" | sed 's/'\''/'\\\\\''/g' |
-          curl -i -H 'Content-Type: application/json' -d @- -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
+          cat "$GITHUB_EVENT_PATH" | sed 's/'\''/'\\\\\"'/g' |
+          curl -H 'Content-Type: application/json' -d @- '${{ env.ON_DISCUSSION_CREATED_URL }}'
         env:
           ON_DISCUSSION_CREATED_URL: ${{ secrets.ON_DISCUSSION_CREATED_URL }}
