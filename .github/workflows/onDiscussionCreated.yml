@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: "Send notification"
         run: |
-          curl -i -H 'Content-Type: application/json' -d `echo ${{ env.$PAYLOAD }}` -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
+          curl -i -H 'Content-Type: application/json' -d `echo ${{ env.EVENT }}` -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
         env:
           EVENT: ${{ toJSON(github.event) }}
           ON_DISCUSSION_CREATED_URL: ${{ secrets.ON_DISCUSSION_CREATED_URL }}
