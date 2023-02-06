@@ -6,6 +6,9 @@ jobs:
   main:
     runs-on: ubuntu-22.04
     steps:
+      - name: "debug"
+        run: |
+          cat "$GITHUB_EVENT_PATH" | jq '@json'
       - name: "Send notification"
         run: |
           cat "$GITHUB_EVENT_PATH" | jq '@json' |
