@@ -13,7 +13,7 @@ jobs:
             ${{ toJSON(github.event) }} 
           EOF
           )
-          data = jq '@json' "$data"
+          data = jq '@json' "$_data"
           echo "PAYLOAD=$(data)" >> $GITHUB_ENV
       - name: "Send notification"
         run: |
