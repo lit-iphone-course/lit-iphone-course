@@ -11,5 +11,4 @@ jobs:
           cat "$GITHUB_EVENT_PATH" | jq '@json' |
           curl -i -H 'Content-Type: application/json' -d @- -L '${{ env.ON_DISCUSSION_CREATED_URL }}'
         env:
-          EVENT: ${{ toJson(github.event) }}
           ON_DISCUSSION_CREATED_URL: ${{ secrets.ON_DISCUSSION_CREATED_URL }}
