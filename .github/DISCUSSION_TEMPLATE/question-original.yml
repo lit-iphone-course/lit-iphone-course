@@ -1,5 +1,4 @@
 title: "[質問]: "
-description: "教科書以外の質問はこちら"
 labels: ["question"]
 body:
   - type: markdown
