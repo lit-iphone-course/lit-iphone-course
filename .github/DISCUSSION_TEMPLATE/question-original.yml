@@ -28,10 +28,10 @@ body:
       placeholder: その他
     validations:
       required: false
-  - type: input
-    id: reference1
+  - type: textarea
+    id: reference
     attributes:
-      label: 自分で調べた資料１
+      label: 自分で調べた資料
       description: 自分で調べた資料のURLを貼ってください！
       placeholder: UIImageViewがタップされた時にイベントをつける(https://qiita.com/tanaka-tt/items/df1ebcc68f29e50c13c9)
   - type: input
