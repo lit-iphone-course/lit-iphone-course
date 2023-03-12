@@ -21,6 +21,12 @@ body:
     validations:
       required: true
   - type: textarea
+    id: reference
+    attributes:
+      label: 自分で調べた資料
+      description: 自分で調べた資料のURLを貼ってください！
+      placeholder: UIImageViewがタップされた時にイベントをつける(https://qiita.com/tanaka-tt/items/df1ebcc68f29e50c13c9)
+  - type: textarea
     id: other
     attributes:
       label: その他補足
@@ -28,12 +34,6 @@ body:
       placeholder: その他
     validations:
       required: false
-  - type: textarea
-    id: reference
-    attributes:
-      label: 自分で調べた資料
-      description: 自分で調べた資料のURLを貼ってください！
-      placeholder: UIImageViewがタップされた時にイベントをつける(https://qiita.com/tanaka-tt/items/df1ebcc68f29e50c13c9)
   - type: input
     id: github-url
     attributes:
