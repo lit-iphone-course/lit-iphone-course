@@ -1,0 +1,110 @@
+title: "[質問]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## タイトルについて
+        タイトルには質問したい内容をできるだけ具体的に書いてください！
+        ### 例
+        ```
+          - Realmに保存した画像のパスを画像に変換できない
+          - CollectionViewのCell内に、画面を長押ししたら画像が表示されるようにしたい
+          - 変更したimageviewとlabelのデータをアプリを再起動しても変更した情報が残っているようにしたい
+        ```
+  - type: textarea
+    id: what
+    attributes:
+      label: エラーの概要
+      description: エラーの概要について教えて下さい！
+      placeholder: 例：Realmに保存した画像のパスを画像に変換できない
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: エラーが起こるタイミング 
+      description: | 
+        いつエラーがおきるか教えて下さい！
+        例：
+        アプリを起動した時
+        TableViewのCellをタップした時
+        データを取得する時
+      placeholder: エラーが起きるタイミングを記入する
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: エラーが起こる場所
+      description: | 
+        エラーが起こる場所のファイル名を記入してください。
+        関数名などが分かる場合は追加で書いてもらえるとありがたいです！
+        GitHubのファイルのURLを貼ってもらえるともっとナイスです！
+        例：
+        - ViewController
+        - EditViewControllerのsave()
+        - APIClient.swift
+        - User.swift
+      placeholder: エラーが起こる場所のファイル名を記入する
+      value: 〇〇ViewController
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 想定している挙動
+      description: 本来はどういった動きをしてほしいか記入してください！
+      placeholder: 例：画面遷移した際にTableViewに投稿が表示されてほしい
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: "原因だと思われる箇所(render: swift)"
+      description: 原因だと思われるコードを貼ってください！(GitHubのpermalinkでもOKです！！)
+      placeholder: 原因だと思われるコードを貼る
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: その他
+      description: その他共有事項があればここに書いてください！
+      placeholder: その他
+    validations:
+      required: false
+  - type: input
+    id: reference1
+    attributes:
+      label: 自分で調べた資料１
+      description: 自分で調べた資料のURLを貼ってください！
+      placeholder: UIImageViewがタップされた時にイベントをつける(https://qiita.com/tanaka-tt/items/df1ebcc68f29e50c13c9)
+    validations:
+      required: true
+  - type: input
+    id: reference2
+    attributes:
+      label: 自分で調べた資料２
+      description: 自分で調べた資料のURLを貼ってください！
+      placeholder: frameとboundsの違いを理解する(https://qiita.com/tanaka-tt/items/0b2df30e1c79638580f7)
+    validations:
+      required: false
+  - type: input
+    id: github-url
+    attributes:
+      label: GitHubのURL
+      description: | 
+        GitHubのリポジトリを教えて下さい！
+        かならず該当するコードがアップロードされていることを確認してください！
+      placeholder: https://github.com/username/repository-name
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: TODOリスト
+      description: 最後に以下の作業を行ったか確認お願いします！
+      options:
+        - label: GitHubに最新のコードをアップロードしました。
+        - label: できるだけ具体的なタイトルを設定しました。
