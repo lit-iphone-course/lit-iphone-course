@@ -27,6 +27,12 @@ body:
       description: 自分で調べた資料のURLを貼ってください！
       placeholder: UIImageViewがタップされた時にイベントをつける(https://qiita.com/tanaka-tt/items/df1ebcc68f29e50c13c9)
   - type: textarea
+    id: images
+    attributes:
+      label: エラーのスクリーンショット
+      description: エラーが発生していることを表すスクーンショット(コンソールの出力など)を添付してください！
+      placeholder: ここにスクリーンショットをドラッグ＆ドロップ
+  - type: textarea
     id: other
     attributes:
       label: その他補足
